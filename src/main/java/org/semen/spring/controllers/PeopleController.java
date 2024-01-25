@@ -3,7 +3,6 @@ package org.semen.spring.controllers;
 
 //import org.semen.spring.dao.PersonDAO;
 import org.semen.spring.models.Person;
-import org.semen.spring.services.ItemService;
 import org.semen.spring.services.PeopleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -77,22 +76,15 @@ public class PeopleController {
 // DAO теперь ненужен все стандартные методы реализуем через PeopleService peopleService клас DAO можно удалить
 
     private final PeopleService peopleService;
-    private final ItemService itemService;
 
     @Autowired
-    public PeopleController(PeopleService peopleService, ItemService itemService) {
+    public PeopleController(PeopleService peopleService) {
         this.peopleService = peopleService;
-        this.itemService = itemService;
     }
 
     @GetMapping()
     public String index(Model model) {
         model.addAttribute("people", peopleService.findAll());
-
-        itemService.findByItemName("Airpods");
-        itemService.findByOwner(peopleService.findAll().get(2));
-
-        peopleService.test();
         return "people/index";
     }
 

@@ -18,6 +18,10 @@
     <input type="text" th:field="*{email}" id="email">
     <div style="color:rebeccapurple" th:if="${#fields.hasErrors('email')}" th:errors="*{email}">Email error</div>
     <br/>
+    <label for="data_of_birth">Введите дату в формате (дд/мм/гггг): </label>
+    <input type="text" th:field="*{dataOfBirth}" id="data_of_birth">
+    <div style="color:rebeccapurple" th:if="${#fields.hasErrors('dataOfBirth')}" th:errors="*{dataOfBirth}">data of birth error</div>
+    <br/>
     <input type="submit" value="Сохранить!"/>
 </form>
 </body>
