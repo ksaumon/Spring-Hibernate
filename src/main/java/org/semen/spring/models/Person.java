@@ -28,7 +28,7 @@ public class Person {
     private String email;
 
     @NotNull(message = "Дата должна быть в формате дд.мм.гггг")
-    @Column(name = "data_of_birth")
+    @Column(name = "data_of_birth ")
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "dd/MM/yyyy")//дд.мм.гггг
     private Date dataOfBirth;
