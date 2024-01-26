@@ -37,6 +37,13 @@ public class Person {
     @Temporal(TemporalType.TIMESTAMP)
     private Date createdAt;
 
+    @Enumerated(EnumType.ORDINAL)// сохранение в bd енумов попорядку начиная с 0-HAPPY(проблемма при смене места HAPPY
+    //в bd все останеться постарому и приведет к путанице )
+    private Mood mood;
+
+//    @Enumerated(EnumType.STRING)// сохранение в bd енум строку HAPPY(проблемма строка занимает больше места)
+//    private Mood mood;
+
 
     public Person() {
 
@@ -94,6 +101,14 @@ public class Person {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public Mood getMood() {
+        return mood;
+    }
+
+    public void setMood(Mood mood) {
+        this.mood = mood;
     }
 
     @Override

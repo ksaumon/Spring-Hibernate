@@ -1,5 +1,6 @@
 package org.semen.spring.services;
 
+import org.semen.spring.models.Mood;
 import org.semen.spring.models.Person;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,6 +33,7 @@ public class PeopleService {
      @Transactional
      public void save(Person person) {
          person.setCreatedAt(new Date());
+         person.setMood(Mood.HAPPY);//0
          peopleRepository.save(person);
      }
 
